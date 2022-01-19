@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <div class="greeting-box animation">
+        <h1 class='greeting'>Добро пожаловать в игру "Морской Бой"</h1>
+        <button id='engage' class="visability_hidden">В бой!</button>
+    </div>
+</header>
+
+<body>
+    <div class="instruction ">
+        <div class="first_greating">
+            <h3 class="hello_player visability_hidden">Здравствуй, игрок! </h3>
+            <p class="instuction_list visability_hidden">
+                Хочешь сразится один на один с машиной в игре "Морской Бой"? Тогда жми на кнопку и погнали!
+            </p>
+            <button class='visability_hidden' id="start_game">
+                Погнали в Бой!
+            </button>
+        </div>
+        <div class='firstRule visability_hidden'>
+            <p class="firstRule_1 visability_hidden">
+                Для начала, нужно правильно расставить корабли:
+            </p>
+            <ol class="rule_list visability_hidden">
+                <li class="list_1 visability_hidden">
+                    Один четырехпалубный
+                </li>
+                <li  class="list_2 visability_hidden">
+                    Два трехпалубных
+                </li>
+                <li  class="list_3 visability_hidden">
+                    Три двухпалубных
+                </li>
+                <li  class="list_4 visability_hidden">
+                    Четыре однопалубных
+                </li>
+            </ol>
+            <p class="last_rule visability_hidden">
+                Помни, корабли не должны соприкасаться! Ставить корабли по диагонали запрещено!
+            </p>
+            <p class="dif_select_instruction visability_hidden"> 
+                Выберите уровень сложности игры:
+            </p>
+            <select class="dif_select visability_hidden">
+                <option value='one'>Легкий</option>
+                <option value='two'>Средний</option>
+                <option value='three'>Высокий</option>
+            </select>
+            <button class="visability_hidden" id="skipButton">
+                Понятно, поехали!
+            </button>
+        </div>
+    </div>
+       
+    <div class="action_field visability_hidden">
+            <div class='player_one_field visability_hidden'>
+                <div class="field">
+                    <p class="player_name">Игрок 1</p>
+                    <table id="battlefield_one">
+                        <tr >
+                            <td class="number_cells">#</td>
+                            <td class="number_cells">A</td>
+                            <td class="number_cells">B</td>
+                            <td class="number_cells">C</td>
+                            <td class="number_cells">D</td>
+                            <td class="number_cells">E</td>
+                            <td class="number_cells">F</td>
+                            <td class="number_cells">G</td>
+                            <td class="number_cells">H</td>
+                            <td class="number_cells">I</td>
+                            <td class="number_cells">J</td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">0</td>
+                            <td data-num="1"></td>
+                            <td data-num="2"></td>
+                            <td data-num="3"></td>
+                            <td data-num="4"></td>
+                            <td data-num="5"></td>
+                            <td data-num="6"></td>
+                            <td data-num="7"></td>
+                            <td data-num="8"></td>
+                            <td data-num="9"></td>
+                            <td data-num="10"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">1</td>
+                            <td data-num="11"></td>
+                            <td data-num="12"></td>
+                            <td data-num="13"></td>
+                            <td data-num="14"></td>
+                            <td data-num="15"></td>
+                            <td data-num="16"></td>
+                            <td data-num="17"></td>
+                            <td data-num="18"></td>
+                            <td data-num="19"></td>
+                            <td data-num="20"></td>
+                        </tr>
+                        <tr >
+                            <td class="number_cells">2</td>
+                            <td data-num="21"></td>
+                            <td data-num="22"></td>
+                            <td data-num="23"></td>
+                            <td data-num="24"></td>
+                            <td data-num="25"></td>
+                            <td data-num="26"></td>
+                            <td data-num="27"></td>
+                            <td data-num="28"></td>
+                            <td data-num="29"></td>
+                            <td data-num="30"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">3</td>
+                            <td data-num="31"></td>
+                            <td data-num="32"></td>
+                            <td data-num="33"></td>
+                            <td data-num="34"></td>
+                            <td data-num="35"></td>
+                            <td data-num="36"></td>
+                            <td data-num="37"></td>
+                            <td data-num="38"></td>
+                            <td data-num="39"></td>
+                            <td data-num="40"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">4</td>
+                            <td data-num="41"></td>
+                            <td data-num="42"></td>
+                            <td data-num="43"></td>
+                            <td data-num="44"></td>
+                            <td data-num="45"></td>
+                            <td data-num="46"></td>
+                            <td data-num="47"></td>
+                            <td data-num="48"></td>
+                            <td data-num="49"></td>
+                            <td data-num="50"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">5</td>
+                            <td data-num="51"></td>
+                            <td data-num="52"></td>
+                            <td data-num="53"></td>
+                            <td data-num="54"></td>
+                            <td data-num="55"></td>
+                            <td data-num="56"></td>
+                            <td data-num="57"></td>
+                            <td data-num="58"></td>
+                            <td data-num="59"></td>
+                            <td data-num="60"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">6</td>
+                            <td data-num="61"></td>
+                            <td data-num="62"></td>
+                            <td data-num="63"></td>
+                            <td data-num="64"></td>
+                            <td data-num="65"></td>
+                            <td data-num="66"></td>
+                            <td data-num="67"></td>
+                            <td data-num="68"></td>
+                            <td data-num="69"></td>
+                            <td data-num="70"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">7</td>
+                            <td data-num="71"></td>
+                            <td data-num="72"></td>
+                            <td data-num="73"></td>
+                            <td data-num="74"></td>
+                            <td data-num="75"></td>
+                            <td data-num="76"></td>
+                            <td data-num="77"></td>
+                            <td data-num="78"></td>
+                            <td data-num="79"></td>
+                            <td data-num="80"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">8</td>
+                            <td data-num="81"></td>
+                            <td data-num="82"></td>
+                            <td data-num="83"></td>
+                            <td data-num="84"></td>
+                            <td data-num="85"></td>
+                            <td data-num="86"></td>
+                            <td data-num="87"></td>
+                            <td data-num="88"></td>
+                            <td data-num="89"></td>
+                            <td data-num="90"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">9</td>
+                            <td data-num="91"></td>
+                            <td data-num="92"></td>
+                            <td data-num="93"></td>
+                            <td data-num="94"></td>
+                            <td data-num="95"></td>
+                            <td data-num="96"></td>
+                            <td data-num="97"></td>
+                            <td data-num="98"></td>
+                            <td data-num="99"></td>
+                            <td data-num="100"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <p class="help">Нажимая на нужные ячейки расставь корабли так, как ты хочешь.</p>
+                </div>
+            </div>
+
+            <div class='computer_field visability_hidden'>
+                <div class="field">
+                    <p class="computer_name"> Компьютер</p>
+                    <table id="battlefield_two">  
+                        <tr>
+                            <td class="number_cells">#</td>
+                            <td class="number_cells">A</td>
+                            <td class="number_cells">B</td>
+                            <td class="number_cells">C</td>
+                            <td class="number_cells">D</td>
+                            <td class="number_cells">E</td>
+                            <td class="number_cells">F</td>
+                            <td class="number_cells">G</td>
+                            <td class="number_cells">H</td>
+                            <td class="number_cells">I</td>
+                            <td class="number_cells">J</td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">0</td>
+                            <td data-num="1" ></td>
+                            <td data-num="2"></td>
+                            <td data-num="3"></td>
+                            <td data-num="4"></td>
+                            <td data-num="5"></td>
+                            <td data-num="6"></td>
+                            <td data-num="7"></td>
+                            <td data-num="8"></td>
+                            <td data-num="9"></td>
+                            <td data-num="10"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">1</td>
+                            <td data-num="11"></td>
+                            <td data-num="12"></td>
+                            <td data-num="13"></td>
+                            <td data-num="14"></td>
+                            <td data-num="15"></td>
+                            <td data-num="16"></td>
+                            <td data-num="17"></td>
+                            <td data-num="18"></td>
+                            <td data-num="19"></td>
+                            <td data-num="20"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">2</td>
+                            <td data-num="21"></td>
+                            <td data-num="22"></td>
+                            <td data-num="23"></td>
+                            <td data-num="24"></td>
+                            <td data-num="25"></td>
+                            <td data-num="26"></td>
+                            <td data-num="27"></td>
+                            <td data-num="28"></td>
+                            <td data-num="29"></td>
+                            <td data-num="30"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">3</td>
+                            <td data-num="31"></td>
+                            <td data-num="32"></td>
+                            <td data-num="33"></td>
+                            <td data-num="34"></td>
+                            <td data-num="35"></td>
+                            <td data-num="36"></td>
+                            <td data-num="37"></td>
+                            <td data-num="38"></td>
+                            <td data-num="39"></td>
+                            <td data-num="40"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">4</td>
+                            <td data-num="41"></td>
+                            <td data-num="42"></td>
+                            <td data-num="43"></td>
+                            <td data-num="44"></td>
+                            <td data-num="45"></td>
+                            <td data-num="46"></td>
+                            <td data-num="47"></td>
+                            <td data-num="48"></td>
+                            <td data-num="49"></td>
+                            <td data-num="50"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">5</td>
+                            <td data-num="51"></td>
+                            <td data-num="52"></td>
+                            <td data-num="53"></td>
+                            <td data-num="54"></td>
+                            <td data-num="55"></td>
+                            <td data-num="56"></td>
+                            <td data-num="57"></td>
+                            <td data-num="58"></td>
+                            <td data-num="59"></td>
+                            <td data-num="60"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">6</td>
+                            <td data-num="61"></td>
+                            <td data-num="62"></td>
+                            <td data-num="63"></td>
+                            <td data-num="64"></td>
+                            <td data-num="65"></td>
+                            <td data-num="66"></td>
+                            <td data-num="67"></td>
+                            <td data-num="68"></td>
+                            <td data-num="69"></td>
+                            <td data-num="70"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">7</td>
+                            <td data-num="71"></td>
+                            <td data-num="72"></td>
+                            <td data-num="73"></td>
+                            <td data-num="74"></td>
+                            <td data-num="75"></td>
+                            <td data-num="76"></td>
+                            <td data-num="77"></td>
+                            <td data-num="78"></td>
+                            <td data-num="79"></td>
+                            <td data-num="80"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">8</td>
+                            <td data-num="81"></td>
+                            <td data-num="82"></td>
+                            <td data-num="83"></td>
+                            <td data-num="84"></td>
+                            <td data-num="85"></td>
+                            <td data-num="86"></td>
+                            <td data-num="87"></td>
+                            <td data-num="88"></td>
+                            <td data-num="89"></td>
+                            <td data-num="90"></td>
+                        </tr>
+                        <tr>
+                            <td class="number_cells">9</td>
+                            <td data-num="91"></td>
+                            <td data-num="92"></td>
+                            <td data-num="93"></td>
+                            <td data-num="94"></td>
+                            <td data-num="95"></td>
+                            <td data-num="96"></td>
+                            <td data-num="97"></td>
+                            <td data-num="98"></td>
+                            <td data-num="99"></td>
+                            <td data-num="100"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+
+            <script>
+                let engage = document.getElementById('engage')
+                let actionField = document.querySelector('.action_field')
+                let player_one_field = document.querySelector('.player_one_field')
+                let computer_field = document.querySelector('.computer_field');
+                let first_greating = document.querySelector('.first_greating')
+                let startButton = document.getElementById('start_game')
+                let firstRule = document.querySelector('.firstRule')
+                let parent = document.querySelector('.instruction')
+                let skipButton = document.getElementById('skipButton')
+                let playerField = document.getElementById('battlefield_one');
+                let computer_td = document.querySelectorAll('#battlefield_two td');
+                let computerField = document.getElementById('battlefield_two')
+                let player_td =document.querySelectorAll('#battlefield_one td')
+                let hello_player = document.querySelector('.hello_player');
+                let instuction_list = document.querySelector('.instuction_list');
+                let firstRuleOne = document.querySelector('.firstRule_1')
+                let rule_list = document.querySelector('.rule_list');
+                let list_1 = document.querySelector('.list_1');
+                let list_2 = document.querySelector('.list_2');
+                let list_3 = document.querySelector('.list_3');
+                let list_4 = document.querySelector('.list_4');
+                let last_rule = document.querySelector('.last_rule');
+                let dif_select = document.querySelector('.dif_select')
+                let dif_select_instruction = document.querySelector('.dif_select_instruction')
+                let counter = 0;
+                let counterWin = 0;
+                let counterComputerWin = 0;
+                let coordinateArr = []
+                let coordinateArrTwo = [];
+                let number;
+                let help = document.querySelector('.help');
+                let selectedTwo;
+                let playerShipArr = ['0'];
+                let dificultChoise;
+                let num;
+                let size=50;
+                let shipOne = [];
+                let shipPoint ;
+                let missedArr = ['Ничего, в следующий раз повезет!', 'Снова промах! А снаряды то денег стоят!', 'Что б его, промах!', 'Попадания не наблюдаю!',
+                'Только рыб напугали!', 'Мимо, только снаряды зря тратим!', 'Ну, хотя бы рыбу поглушили, айда на рыбалку?','Мда, снайпер из тебя, как из слона балерина:)']
+
+                let hitArr = ['Вот это попадание!','Противник в огне!','Есть попадание по вражескому кораблю!','Тюлень мне в душу, вот это жахнуло!',
+                'Меткий выстрел!','Святые якоря, вот это взрыв!','Мы задали им жару!','Мы дали им прикруть!','Мда, на починку их корабля уйдет не один год.',
+                'Попал! Попал!','Вмазал им так, что аж уши заложило!']
+            
+                for(i = 0; i<=100; i++)
+                {coordinateArr.push(String(i));
+                coordinateArrTwo.push(i);}
+
+                function getRandomInt(min, max) {
+                        return Math.ceil(Math.random() * (max - min) + min);
+                    }
+
+                setTimeout(function AppendHelloPlayer() { 
+                    hello_player.classList.remove('visability_hidden')   // задержка появления приветствия
+                    hello_player.classList.add('animation')
+                }, 1500)
+                setTimeout(function AppendQuestion() {
+                    instuction_list.classList.remove('visability_hidden') // задержка появления вопроса
+                    instuction_list.classList.add('animation')
+                }, 2500)
+                setTimeout(function AppendButton() {
+                        startButton.classList.remove('visability_hidden')  // задержка появления кнопки "В бой"
+                        startButton.classList.add('animation')
+                }, 3500)  
+
+                startButton.addEventListener('click', function Start() {   // нажатие на кнопку "В бой" 
+                        parent.removeChild(first_greating);
+                        firstRule.classList.remove('visability_hidden');
+          
+                        setTimeout(function firstRuleOneAppend() {
+                        firstRuleOne.classList.remove('visability_hidden');   // появления начала правил
+                            firstRuleOne.classList.add('animation')
+                            }, 500) 
+
+                        setTimeout(function ruleListAppend() {
+                        rule_list.classList.remove('visability_hidden');
+                        rule_list.classList.add('animation')
+                             }, 1500)  
+                        setTimeout(function listOneAppend() {
+                        list_1.classList.remove('visability_hidden');
+                        list_1.classList.add('animation')
+                         }, 2500) 
+                          setTimeout(function listTwoAppend() {
+                        list_2.classList.remove('visability_hidden');
+                        list_2.classList.add('animation')
+                          }, 3500) 
+                        setTimeout(function listThreeAppend() {
+                        list_3.classList.remove('visability_hidden');
+                        list_3.classList.add('animation')
+                        }, 4500)
+                        setTimeout(function listFourAppend() {
+                        list_4.classList.remove('visability_hidden');
+                        list_4.classList.add('animation')
+                        }, 5500)
+                        setTimeout(function lastRuleAppend() {
+                        last_rule.classList.remove('visability_hidden');
+                        last_rule.classList.add('animation')
+                        }, 6500)
+                         setTimeout(function  difSelectAppend() {
+                        dif_select_instruction.classList.remove('visability_hidden');
+                        dif_select_instruction.classList.add('animation')
+                         }, 7500)
+                        setTimeout(function difSelectAppend() {
+                        dif_select.classList.remove('visability_hidden');
+                        dif_select.classList.add('animation')
+                          }, 8500)
+                         dif_select_instruction
+                        setTimeout(function buttonAppend() {
+                        skipButton.classList.remove('visability_hidden')
+                        skipButton.classList.add('animation')
+                        }, 10500) 
+
+                        dif_select.addEventListener('change', function choise(){
+                            if(dif_select.value == 'one'){
+                                dificultChoise = 30;
+                                console.log(dificultChoise);
+                                size = Number(dificultChoise) + 20;
+                            }
+                            else if (dif_select.value == 'two') {
+                                dificultChoise = 20;
+                                console.log(dificultChoise);
+                                size = Number(dificultChoise) + 20;
+                            }
+                             else if (dif_select.value == 'three') {
+                                dificultChoise = 10;
+                                console.log(dificultChoise);
+                                size = Number(dificultChoise) + 20;
+                            }
+                        })
+                    })
+
+                skipButton.addEventListener('click', function Skip(){    // нажатие на кнопку "Понятно" 
+                        player_one_field.classList.remove('visability_hidden');
+                        player_one_field.classList.add('animation')
+                        actionField.classList.remove('visability_hidden')
+                        parent.removeChild(firstRule);})
+
+                help.innerHTML = 'Для начала размести на поле боя самый большой корабль в 4 ячейки';
+                
+                playerField.addEventListener('click',                      // функция выбора кораблей
+                function ShipSelection(event){
+                   
+
+
+                    if(counter <3  && event.target.matches('.number_cells') !== true)
+                    {
+                        event.target.classList.add('green');
+                        playerShipArr.push(event.target.dataset.num)
+                        counter++;
+                      
+                    }
+                    else if(counter <=8 && event.target.matches('.number_cells') !== true){
+                        help.innerHTML = 'Отлично! Теперь нужно выбрать положения для двух трехпалубных кораблей'
+                        event.target.classList.add('green');
+                        counter++;
+                        playerShipArr.push(event.target.dataset.num)
+                      
+                    }
+                    else if ( counter <= 14 && event.target.matches('.number_cells') !== true) {
+                        help.innerHTML = 'Теперь поставь три двухпалубных корабля'
+                        event.target.classList.add('green');
+                        counter++;
+                        playerShipArr.push(event.target.dataset.num)
+                      
+                         
+                    }
+                    else if ( counter <20 && event.target.matches('.number_cells') !== true) {
+                        help.innerHTML = 'Последний шаг! Нужно разместить четыре однопалубника'
+                        event.target.classList.add('green');
+                        counter++;
+                        playerShipArr.push(event.target.dataset.num);
+                        if(counter == 20){
+                            engage.classList.remove('visability_hidden');
+                            engage.addEventListener('click', function Engage () {
+                                engage.classList.add('visability_hidden');
+                                computer_field.classList.remove('visability_hidden')
+                                computer_field.classList.add('animation')
+                                playerField.removeEventListener('click', ShipSelection)
+                                help.innerHTML = 'Отлично! Теперь можно атаковать противника. Кликай на ячейки поля неприятеля, где,по твоему мнению, находятся вражеские корабли.'
+                                plusNumber(playerShipArr, coordinateArr);
+                                chanceNoRepeat(size);
+                                engage.removeEventListener('click', Engage);
+                                console.log(playerShipArr); 
+                            })
+                        }  
+                    }
+                  })
+
+
+                let datarowArr = [ 11, 12, 13, 14, 31, 32, 33, 16,26,36, 18,19, 66,67, 81,82, 100, 79 ,53, 31];      // метод заполнения поля  кораблей компьютера 
+                let datarowArr1 = [91,92,93,94, 8,9,10, 21,22,23, 36,37, 40,50, 75,76, 71, 4,98,42];
+                let datarowArr2 = [45,46,47,48, 1,2,3, 17,18,19, 81,82, 79,80, 51,52, 5, 100, 93,42];
+                let datarowArr3 = [77,78,79,80, 8,9,10, 32,42,52, 64,65, 2,12, 48,58, 91, 52, 4 ,60];
+                let datarowArr4 = [24,25,26,27, 42,52,62, 58,68,78, 84,85, 1,2, 45,55, 10, 99,82,40];
+                let shipCompArr = [datarowArr, datarowArr1, datarowArr2, datarowArr3, datarowArr4];
+
+                let arr = shipCompArr[getRandomInt(-1, 4)];
+                for(i=0;i<20;i++)
+                {   
+                    let selectedOne = document.querySelector('#battlefield_two td[data-num="' + arr[i] + '"]');
+                    selectedOne.classList.add('red');
+                    
+                }
+
+                function plusNumber (arr1, arr2){
+                        for(i=0;i<= arr1.length;i++){
+                            arr2.splice(arr2.indexOf(arr1[i]), 1, 'zero')
+                            
+                        }
+                    }
+                                           
+                function chanceNoRepeat(size){ 
+                for(i=0;i<= 100 ;i++){
+                    num = coordinateArr[getRandomInt(0, coordinateArr.length-1)]
+                    if(num!=='zero' && playerShipArr.length < size)
+                    {
+                        playerShipArr.push(num);
+                        coordinateArr.splice(coordinateArr.indexOf(num), 1, 'zero');
+                        console.log(num);
+                    }
+                    else if(playerShipArr.length == size )
+                    {   console.log('нужный размер, стоп цикл')
+                        i= 100;
+                        console.log(coordinateArr);
+                    }
+                }  
+                return playerShipArr;    
+            }
+                                                    
+                function NoRepeat(arr) {
+                        for (i = 0; i < arr.length; i++) {
+                            number = arr[getRandomInt(0, arr.length - 1)];;
+
+                            if (number === 'zero') {
+                                console.log('повтор числа')
+                            }
+                            else if (number !== 'zero') {
+                                console.log('значение найдено')
+                                i = arr.length - 1;
+                            }
+                        }
+                        return number;
+                    }
+
+               
+                for(let td of computer_td)
+                {
+                    
+                    td.addEventListener('click', function Engage(event) {                         // нажатие по полю врага и атака вражеских кораблей
+                        if (counterComputerWin!==20 && counterWin<21 && this.matches('.red')=== true)                        // попал игрок
+                        {   this.classList.add('diagonalCross');
+                            counterWin++;
+                            help.innerHTML = hitArr[getRandomInt(0, hitArr.length - 1)] + ' ' + 'Бей еще раз!'
+                           
+                        }
+                        else if(counterComputerWin !== 20 && counterWin < 21 && this.matches('.red') !== true && this.matches('.number_cells') !== true) // игрок промазал
+                        {   
+                            this.classList.add('circle');
+                            help.innerHTML = missedArr[getRandomInt(0, missedArr.length-1)]    // ход компьютера
+                            
+                            
+                            number = NoRepeat(playerShipArr);
+                            console.log(number);
+                            playerShipArr.splice(playerShipArr.indexOf(number), 1, 'zero');
+                            console.log(playerShipArr);
+                            selectedTwo = document.querySelector('#battlefield_one td[data-num="' + number + '"]');
+                            setTimeout(function hit(){
+                            if (selectedTwo.matches('.green') === true) 
+                            {
+                                selectedTwo.classList.add('diagonalCross');
+                                selectedTwo.classList.add('slowanimation');
+                                help.innerHTML = 'Союзный корабль подбит!';
+                                counterComputerWin++;
+                                console.log(counterComputerWin);
+                                console.log(counterWin);
+                                
+                            }
+                             else if (selectedTwo.matches('.green') !== true) 
+                            {
+                                selectedTwo.classList.add('circle');
+                                selectedTwo.classList.add('slowanimation');
+                                console.log('промах!')
+                            }
+                    },1500)
+          
+            }
+
+                            else if (counterComputerWin == 20) { 
+                            engage.innerHTML = 'Хочешь ревашн?';
+                            engage.classList.remove('visability_hidden');
+                            engage.addEventListener('click', function(){
+                                 document.location.reload()
+                            })
+                            alert('Вы проиграли!');
+                        }
+                                 else if (counterWin == 20) { alert('Ви победили!'); }
+                 } )                    
+                }
+            </script>
+</body>
+</html>
+

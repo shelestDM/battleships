@@ -1,0 +1,189 @@
+body {
+  background-image: url(image.jpg);
+  background-size: 100%;
+}
+.greeting {
+  color: rgb(0, 0, 0);
+}
+.instuction_list {
+  font-weight: bold;
+}
+.greeting,
+.player_name,
+.computer_name {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.greeting-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#engage {
+  display: flex;
+  justify-content: center;
+}
+
+.instruction,
+.firstRule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.firstRule {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+#skipButton {
+  font-size: 14px;
+  margin-top: 80px;
+}
+
+.player_name,
+.computer_name {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.action_field {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player_one_field {
+  width: 421px;
+  height: 500px;
+  border: 1px solid black;
+  float: left;
+  box-sizing: border-box;
+}
+
+.computer_field {
+  width: 421px;
+  height: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+td {
+  border: 1px solid black;
+  width: 35px;
+  height: 35px;
+  max-width: 35px;
+  max-height: 35px;
+}
+
+#battlefield_one,
+#battlefield_two {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0px 0px;
+}
+.number_cells {
+  width: 25px;
+  height: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+.green {
+  background-color: green;
+}
+
+.red {
+}
+
+.first_greating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 25px;
+}
+.visability_hidden {
+  visibility: hidden;
+}
+.diagonalCross {
+  position: relative;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 49.9%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(0, 0, 0, 0) 51.1%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-color: red;
+}
+
+.help {
+  font-size: 20px;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.circle {
+  background-image: radial-gradient(
+    circle closest-corner at 45% 50%,
+    rgb(0, 0, 0) 15%,
+    transparent 15%
+  );
+}
+
+.hiden_circle {
+  overflow: hidden;
+  background-image: radial-gradient(
+    circle closest-corner at 45% 50%,
+    rgb(0, 0, 0) 15%,
+    transparent 15%
+  );
+}
+
+@keyframes greeting-animation {
+  0% {
+    bottom: -150px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+.animation {
+  animation-name: greeting-animation;
+  animation-duration: 2000ms;
+  position: relative;
+}
+
+.dif_select {
+  /* width: 100px;
+  height: 28px; */
+  font-size: 15px;
+}
+
+@keyframes slow-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1px;
+  }
+}
+
+.slowanimation {
+  animation-name: slow-animation;
+  animation-duration: 2000ms;
+  position: relative;
+}
+
+.none-active {
+}
