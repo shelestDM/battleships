@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="http://fonts.cdnfonts.com/css/horizon" rel="stylesheet">
 </head>
 <header>
     <div class="greeting-box animation">
@@ -20,7 +21,7 @@
                 Хочешь сразится один на один с машиной в игре "Морской Бой"? Тогда жми на кнопку и погнали!
             </p>
             <button class='visability_hidden' id="start_game">
-                Погнали в Бой!
+                В Бой!
             </button>
         </div>
         <div class='firstRule visability_hidden'>
@@ -56,12 +57,19 @@
                 Понятно, поехали!
             </button>
         </div>
+        <div class="name_enter visability_hidden">
+            <input class="name_inp" placeholder="Введите имя игрока" value="">
+            <button id='finalSkip'>В бой!</button>
+        </div>
     </div>
        
     <div class="action_field visability_hidden">
             <div class='player_one_field visability_hidden'>
-                <div class="field">
-                    <p class="player_name">Игрок 1</p>
+                <div class="player_name">
+                    <p class="player_name_p"></p>
+                </div>
+                   
+
                     <table id="battlefield_one">
                         <tr >
                             <td class="number_cells">#</td>
@@ -207,15 +215,16 @@
                             <td data-num="100"></td>
                         </tr>
                     </table>
-                </div>
-                <div>
+                
+                <div class="help_div">
                     <p class="help">Нажимая на нужные ячейки расставь корабли так, как ты хочешь.</p>
                 </div>
             </div>
 
             <div class='computer_field visability_hidden'>
-                <div class="field">
+               <div class='player_name'div>
                     <p class="computer_name"> Компьютер</p>
+               </div>
                     <table id="battlefield_two">  
                         <tr>
                             <td class="number_cells">#</td>
@@ -361,12 +370,16 @@
                             <td data-num="100"></td>
                         </tr>
                     </table>
-                </div>
+               
             </div>
+      
     </div>
 
 
             <script>
+                let name_enter = document.querySelector('.name_enter');
+                let name_inp = document.querySelector('.name_inp');
+                let finalSkip = document.getElementById('finalSkip');
                 let engage = document.getElementById('engage')
                 let actionField = document.querySelector('.action_field')
                 let player_one_field = document.querySelector('.player_one_field')
@@ -391,6 +404,7 @@
                 let last_rule = document.querySelector('.last_rule');
                 let dif_select = document.querySelector('.dif_select')
                 let dif_select_instruction = document.querySelector('.dif_select_instruction')
+                let player_name_p = document.querySelector('.player_name_p');
                 let counter = 0;
                 let counterWin = 0;
                 let counterComputerWin = 0;
@@ -409,7 +423,7 @@
                 'Только рыб напугали!', 'Мимо, только снаряды зря тратим!', 'Ну, хотя бы рыбу поглушили, айда на рыбалку?','Мда, снайпер из тебя, как из слона балерина:)']
 
                 let hitArr = ['Вот это попадание!','Противник в огне!','Есть попадание по вражескому кораблю!','Тюлень мне в душу, вот это жахнуло!',
-                'Меткий выстрел!','Святые якоря, вот это взрыв!','Мы задали им жару!','Мы дали им прикруть!','Мда, на починку их корабля уйдет не один год.',
+                'Меткий выстрел!','Святые якоря, вот это взрыв!','Мы задали им жару!','Мы дали им прикурить!','Мда, на починку их корабля уйдет не один год.',
                 'Попал! Попал!','Вмазал им так, что аж уши заложило!']
             
                 for(i = 0; i<=100; i++)
@@ -427,11 +441,11 @@
                 setTimeout(function AppendQuestion() {
                     instuction_list.classList.remove('visability_hidden') // задержка появления вопроса
                     instuction_list.classList.add('animation')
-                }, 2500)
+                }, 3500)
                 setTimeout(function AppendButton() {
                         startButton.classList.remove('visability_hidden')  // задержка появления кнопки "В бой"
                         startButton.classList.add('animation')
-                }, 3500)  
+                }, 5500)  
 
                 startButton.addEventListener('click', function Start() {   // нажатие на кнопку "В бой" 
                         parent.removeChild(first_greating);
@@ -478,7 +492,7 @@
                         setTimeout(function buttonAppend() {
                         skipButton.classList.remove('visability_hidden')
                         skipButton.classList.add('animation')
-                        }, 10500) 
+                        }, 11500) 
 
                         dif_select.addEventListener('change', function choise(){
                             if(dif_select.value == 'one'){
@@ -500,10 +514,24 @@
                     })
 
                 skipButton.addEventListener('click', function Skip(){    // нажатие на кнопку "Понятно" 
+                            parent.removeChild(firstRule);
+                            name_enter.classList.remove('visability_hidden');
+                            name_enter.classList.add('animation')
+                       
+                    })
+
+                    name_inp.addEventListener('change', function Name(){
+                        player_name_p.innerHTML = name_inp.value;
+                    })
+
+                    finalSkip.addEventListener('click', function Attack(){
+                        parent.removeChild(name_enter);
                         player_one_field.classList.remove('visability_hidden');
-                        player_one_field.classList.add('animation')
-                        actionField.classList.remove('visability_hidden')
-                        parent.removeChild(firstRule);})
+                        player_one_field.classList.add('animation');
+                        actionField.classList.remove('visability_hidden');
+                         parent.removeChild(finalSkip);
+                    })
+                        
 
                 help.innerHTML = 'Для начала размести на поле боя самый большой корабль в 4 ячейки';
                 
@@ -666,7 +694,9 @@
                                  else if (counterWin == 20) { alert('Ви победили!'); }
                  } )                    
                 }
+            
             </script>
 </body>
 </html>
+
 
