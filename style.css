@@ -96,7 +96,7 @@ td {
   font-weight: bold;
 }
 .green {
-  background-color: rgb(152, 241, 111);
+  background-color: rgb(8, 56, 146);
 }
 
 .red {
@@ -123,7 +123,7 @@ td {
     transparent 52%
   );
   background-repeat: no-repeat;
-  background-color: rgb(231, 75, 75);
+  background-color: rgb(124, 24, 24);
 }
 .help_div {
   display: flex;
@@ -199,4 +199,5 @@ td {
   justify-content: center;
   align-items: center;
 }
-
+.player_name_p {
+}
