@@ -377,7 +377,6 @@
 
 
             <script>
-                
                 let name_enter = document.querySelector('.name_enter');
                 let name_inp = document.querySelector('.name_inp');
                 let finalSkip = document.getElementById('finalSkip');
@@ -530,7 +529,7 @@
                         player_one_field.classList.remove('visability_hidden');
                         player_one_field.classList.add('animation');
                         actionField.classList.remove('visability_hidden');
-                         parent.removeChild(finalSkip);
+                        parent.removeChild(finalSkip);
                     })
                         
 
@@ -541,21 +540,21 @@
                    
 
 
-                    if(counter <3  && event.target.matches('.number_cells') !== true)
+                    if(counter <3  && event.target.matches('.number_cells') !== true &&  event.target.matches('.green') !== true)
                     {
                         event.target.classList.add('green');
                         playerShipArr.push(event.target.dataset.num)
                         counter++;
                       
                     }
-                    else if(counter <=8 && event.target.matches('.number_cells') !== true){
+                    else if(counter <=8 && event.target.matches('.number_cells') !== true && event.target.matches('.green') !== true){
                         help.innerHTML = 'Отлично! Теперь нужно выбрать положения для двух трехпалубных кораблей'
                         event.target.classList.add('green');
                         counter++;
                         playerShipArr.push(event.target.dataset.num)
                       
                     }
-                    else if ( counter <= 14 && event.target.matches('.number_cells') !== true) {
+                    else if ( counter <= 14 && event.target.matches('.number_cells') !== true && event.target.matches('.green') !== true) {
                         help.innerHTML = 'Теперь поставь три двухпалубных корабля'
                         event.target.classList.add('green');
                         counter++;
@@ -563,7 +562,7 @@
                       
                          
                     }
-                    else if ( counter <20 && event.target.matches('.number_cells') !== true) {
+                    else if ( counter <20 && event.target.matches('.number_cells') !== true && event.target.matches('.green') !== true) {
                         help.innerHTML = 'Последний шаг! Нужно разместить четыре однопалубника'
                         event.target.classList.add('green');
                         counter++;
@@ -579,21 +578,21 @@
                                 plusNumber(playerShipArr, coordinateArr);
                                 chanceNoRepeat(size);
                                 engage.removeEventListener('click', Engage);
-                                console.log(playerShipArr); 
                             })
                         }  
                     }
                   })
 
 
-                let datarowArr = [ 11, 12, 13, 14, 31, 32, 33, 16,26,36, 18,19, 66,67, 81,82, 100, 79 ,53, 31];      // метод заполнения поля  кораблей компьютера 
-                let datarowArr1 = [91,92,93,94, 8,9,10, 21,22,23, 36,37, 40,50, 75,76, 71, 4,98,42];
-                let datarowArr2 = [45,46,47,48, 1,2,3, 17,18,19, 81,82, 79,80, 51,52, 5, 100, 93,42];
-                let datarowArr3 = [77,78,79,80, 8,9,10, 32,42,52, 64,65, 2,12, 48,58, 91, 52, 4 ,60];
-                let datarowArr4 = [24,25,26,27, 42,52,62, 58,68,78, 84,85, 1,2, 45,55, 10, 99,82,40];
+                let datarowArr =  [12,13,14,15, 32,33,34, 36,46,56, 18,19, 86,87, 81,82, 84, 79 ,53, 48];      // метод заполнения поля  кораблей компьютера 
+                let datarowArr1 = [81,82,83,84, 1,2,3, 32,33,34, 36,37, 40,50, 78,79, 55, 52,16,58];
+                let datarowArr2 = [45,46,47,48, 1,2,3, 17,18,19, 82,92, 79,80, 51,52, 15, 86, 74,32];
+                let datarowArr3 = [86,87,88,89, 19,29,39, 32,42,52, 54,55, 2,12, 58,68, 82, 84, 14 ,27];
+                let datarowArr4 = [24,25,26,27, 42,52,62, 58,68,78, 84,85, 1,2, 45,55, 19, 22,82,39];
                 let shipCompArr = [datarowArr, datarowArr1, datarowArr2, datarowArr3, datarowArr4];
 
-                let arr = shipCompArr[getRandomInt(-1, 4)];
+                let arr =  shipCompArr[getRandomInt(-1, 4)];
+                console.log(arr);
                 for(i=0;i<20;i++)
                 {   
                     let selectedOne = document.querySelector('#battlefield_two td[data-num="' + arr[i] + '"]');
@@ -606,8 +605,7 @@
                             arr2.splice(arr2.indexOf(arr1[i]), 1, 'zero')
                             
                         }
-                    }
-                                           
+                    }                                      
                 function chanceNoRepeat(size){ 
                 for(i=0;i<= 100 ;i++){
                     num = coordinateArr[getRandomInt(0, coordinateArr.length-1)]
@@ -620,12 +618,10 @@
                     else if(playerShipArr.length == size )
                     {   console.log('нужный размер, стоп цикл')
                         i= 100;
-                        console.log(coordinateArr);
                     }
                 }  
                 return playerShipArr;    
-            }
-                                                    
+            }                                                  
                 function NoRepeat(arr) {
                         for (i = 0; i < arr.length; i++) {
                             number = arr[getRandomInt(0, arr.length - 1)];;
@@ -641,27 +637,304 @@
                         return number;
                     }
 
-               
+                  
+                    
+
+                    let for1ShipArr = [1,-1,10,-10, 9,-9,11,-11]
+
+                    let ship2ArrH = [2,10,11,12,9,-1,-10,-9,-8,-11];
+                    let ship2ArrHzero = [2, 10, 11, 12, -10, -9, -8];
+                    let ship2ArrHOneTwo = [2, 10, 11, 12];
+                    let ship2ArrHOneToLeftWall = [10, 11, 9, -1, -10, -9, -11];
+
+                    let ship2ArrV = [1,9,11,19,20,21,-1,-9,-10,-11];
+                    let ship2ArrVTwoNine = [1, 9, 11, 19, 20, 21, -1];
+                    let ship2ArrVToDown = [1, 9, 11, -1, -9, -10, -11];
+                    let ship2ArrVLeft = [ 9, 19, 20, -1, -10, -11];
+
+
+                    let for3ShipArrHor = [-10, -9, -8, -7, -1, -11, 3, 9, 10, 11, 12, 13];
+                    let for3ShipArrHorToUp = [-1, 9, 10, 11, 12];
+                    let for3ShipArrHorFirstLine = [ 3, 10, 11, 12, 13];
+
+                    let for3ShipArrVer = [1, 11, 21, 31, 30, 29, 19, 9, -1, -9, -10, -11]
+
+                    
+                    let for4ShipArr = [10, 11, 12, 13, 14, 9, 4, -1, -11, -10, -9, -8, -7, -6];
+                    let for4ShipArr2 = [10, 11, 12, 13, 14, 4, -10, -9, -8, -7, -6];
+
+
+
+
+                    function AroundShip1Check(arr, num1) //реализация точек вокруг убитого 1но палубного корабля
+                    {
+
+                         if( document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true ) 
+                         {
+                             for(i = 0;i< for1ShipArr.length;i++)
+                             {
+                                 document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for1ShipArr[i]) + '"]').classList.add('circle')
+                             }
+                            
+                          
+                         }
+                          
+                    }
+
+                    function AroundShip2Check(arr, num1, num2) //реализация точек вокруг убитого 2ух палубного корабля
+                    {
+
+                        if(
+                            ((arr[num1] - 1)) == 0  // если на первой линии (1-2)
+                            && arr[num2] - arr[num1] == 1
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true 
+
+                        )
+                        {
+                            for (i = 0; i < ship2ArrHOneTwo.length; i++) 
+                            {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrHOneTwo[i]) + '"]').classList.add('circle')
+                                console.log('h-1-2')
+                            }
+                        }
+
+                        else if (((arr[num1] + 1) % 10) == 0  // если у левой стенки не доходя 1 клетку
+                            && arr[num2] - arr[num1] == 1
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            for (i = 0; i < ship2ArrHOneToLeftWall.length; i++) {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrHOneToLeftWall[i]) + '"]').classList.add('circle')
+                                console.log('h-one-to-wall')
+                            }
+
+                        }
+
+                        else if ( ((arr[num1] - 1) % 10) >0  // если не касается стенок
+                        && arr[num2] - arr[num1] == 1 
+                        && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true 
+                        && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true 
+                         ) 
+                        {
+                            for(i=0;i< ship2ArrH.length;i++)
+                            {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrH[i]) + '"]').classList.add('circle')
+                                console.log('h')
+                            }
+                           
+                        }
+
+                        else if (  ((arr[num1] - 1)%10) == 0    // если касается левой стенки
+                                    && arr[num2] - arr[num1] == 1
+                                    && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                                    && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                              )
+                        {
+                             for (i = 0; i < ship2ArrHzero.length; i++) 
+                             {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrHzero[i]) + '"]').classList.add('circle')
+                                console.log('h-zero')
+                            }
+                        }
+                        
+                        else if ( //  вертикальных кораблей(у правой стенки)
+                            (arr[num1]%10) == 0
+                            && arr[num2] - arr[num1] == 10
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            {
+                                for (i = 0; i < ship2ArrVLeft.length; i++) {
+                                    document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrVLeft[i]) + '"]').classList.add('circle')
+                                    console.log('v-to-right')
+                                }
+                            }
+
+                        }
+
+
+                        else if ( //  вертикальных кораблей(у низа)
+                            (arr[num2] + 9) >= 100
+                            && arr[num2] - arr[num1] == 10
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            {
+                                for (i = 0; i < ship2ArrVToDown.length; i++) {
+                                    document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrVToDown[i]) + '"]').classList.add('circle')
+                                    console.log('v-to-down')
+                                }
+                            }
+
+                        }
+                        else if ( //  вертикальных кораблей(2-9яч)
+                            (arr[num1] - 10) < 0
+                            && arr[num2] - arr[num1] == 10
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            {
+                                for (i = 0; i < ship2ArrVTwoNine.length; i++) {
+                                    document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrVTwoNine[i]) + '"]').classList.add('circle')
+                                    console.log('v-2-9')
+                                }
+                            }
+
+                        }
+                        else if( arr[num2] - arr[num1] == 10  // начало вертикальных кораблей( вертикал не касаясь)
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                             )
+                            {
+                               for (i = 0; i < ship2ArrV.length; i++) {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + ship2ArrV[i]) + '"]').classList.add('circle')
+                            console.log('v')
+                            } 
+                            
+                        }
+                      
+                }
+                                
+                    function AroundShip3Check(arr,num1,num2)
+                    {
+
+                        
+                         if (((arr[num1] - 1) % 10) > 0  // если не касается стенок
+                            && arr[num2] - arr[num1] == 2
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2-1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            for (i = 0; i < for3ShipArrHor.length; i++) {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for3ShipArrHor[i]) + '"]').classList.add('circle')
+                                console.log('h-3-cent')
+                            }
+
+                        }
+                        else if (((arr[num1] - 1) % 10) > 0  // если не касается стенок
+                            && arr[num2] - arr[num1] == 20
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2 - 1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) {
+                            for (i = 0; i < for3ShipArrVer.length; i++) {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for3ShipArrVer[i]) + '"]').classList.add('circle')
+                                console.log('h-3-cent')
+                            }
+
+                        }
+
+                        else if (
+                            ((arr[num1] -1) <=6 ) // трех палубный у потолка горизонтально (1-8)
+                            && arr[num2] - arr[num1] == 2
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + (arr[num2] - 1) + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+                        ) 
+                        {
+                            for (i = 0; i < for3ShipArrHorFirstLine.length; i++) 
+                            {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for3ShipArrHorFirstLine[i]) + '"]').classList.add('circle')
+                                console.log('3h-first-line')
+                            }
+                        } 
+                        
+                 }
+
+                    function AroundShip4Check(arr,num1,num2)
+                    {
+
+                          if (
+                            ((arr[num1] - 1) % 10 == 0) // если скраю
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + (arr[num2] - 2) + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + (arr[num2] - 1) + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+
+                        ) {
+                            for (i = 0; i < for4ShipArr2.length; i++) {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for4ShipArr2[i]) + '"]').classList.add('circle')
+                                console.log('h-4-size-to-left')
+                            }
+                        }
+
+                        else if (
+                            ((arr[num2] - arr[num1])) == 3  // если на первой линии (1-2)
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num1] + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + (arr[num2] -2 ) + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + (arr[num2] -1) + '"]').matches('.diagonalCross') === true
+                            && document.querySelector('#battlefield_two td[data-num="' + arr[num2] + '"]').matches('.diagonalCross') === true
+
+                        ) 
+                        {
+                            for (i = 0; i < for4ShipArr.length; i++)
+                             {
+                                document.querySelector('#battlefield_two td[data-num="' + (arr[num1] + for4ShipArr[i]) + '"]').classList.add('circle')
+                                console.log('h-4-size')
+                            }
+                        }        
+                    }
+
+
+                    
                 for(let td of computer_td)
                 {
                     
-                    td.addEventListener('click', function Engage(event) {                         // нажатие по полю врага и атака вражеских кораблей
+
+                    td.addEventListener('click', function Engage(event) {  
+                                               // нажатие по полю врага и атака вражеских кораблей
+                        if (counterComputerWin == 20) {
+                            engage.innerHTML = 'Хочешь ревашн?';
+                            engage.classList.remove('visability_hidden');
+                            engage.addEventListener('click', function () {
+                                document.location.reload()
+                            })
+                            alert('Вы проиграли!');
+                        }
+                        else if (counterWin == 20) { 
+                            engage.innerHTML = 'Еще разок?)';
+                            engage.classList.remove('visability_hidden');
+                            engage.addEventListener('click', function () {
+                            document.location.reload()
+                            })
+                            alert('Ви победили!'); }
+
+
+
                         if (counterComputerWin!==20 && counterWin<21 && this.matches('.red')=== true)                        // попал игрок
                         {   this.classList.add('diagonalCross');
                             counterWin++;
-                            help.innerHTML = hitArr[getRandomInt(0, hitArr.length - 1)] + ' ' + 'Бей еще раз!'
-                           
+                            help.innerHTML = hitArr[getRandomInt(0, hitArr.length - 1)] + ' ' + 'Бей еще раз!';
+                            
+                            
+
+                            AroundShip1Check(arr, 16);
+                            AroundShip1Check(arr, 17);
+                            AroundShip1Check(arr, 18);
+                            AroundShip1Check(arr, 19);
+
+                            AroundShip2Check(arr, 10, 11);
+                            AroundShip2Check(arr, 12, 13);
+                            AroundShip2Check(arr, 14, 15);
+
+                            AroundShip3Check(arr, 4, 6);
+                            AroundShip3Check(arr, 7, 9);
+
+
+                            AroundShip4Check(arr,0,3)
+                            console.log(counterWin)
                         }
                         else if(counterComputerWin !== 20 && counterWin < 21 && this.matches('.red') !== true && this.matches('.number_cells') !== true) // игрок промазал
                         {   
                             this.classList.add('circle');
                             help.innerHTML = missedArr[getRandomInt(0, missedArr.length-1)]    // ход компьютера
                             
-                            
                             number = NoRepeat(playerShipArr);
                             console.log(number);
                             playerShipArr.splice(playerShipArr.indexOf(number), 1, 'zero');
                             console.log(playerShipArr);
+                            
                             selectedTwo = document.querySelector('#battlefield_one td[data-num="' + number + '"]');
                             setTimeout(function hit(){
                             if (selectedTwo.matches('.green') === true) 
@@ -680,24 +953,13 @@
                                 selectedTwo.classList.add('slowanimation');
                                 console.log('промах!')
                             }
-                    },1500)
-          
-            }
+                    },1500)}
 
-                            else if (counterComputerWin == 20) { 
-                            engage.innerHTML = 'Хочешь ревашн?';
-                            engage.classList.remove('visability_hidden');
-                            engage.addEventListener('click', function(){
-                                 document.location.reload()
-                            })
-                            alert('Вы проиграли!');
-                        }
-                                 else if (counterWin == 20) { alert('Ви победили!'); }
+                           
                  } )                    
                 }
-            console.log('Version: 1.0.0');
+            
             </script>
 </body>
 </html>
-
 
